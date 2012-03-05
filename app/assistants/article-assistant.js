@@ -11,6 +11,7 @@ var ArticleAssistant = Class.create(BaseAssistant, {
     $super()
     this.controller.setupWidget("working-spinner", {spinnerSize: "small"}, this.workingSpinner)
     this.controller.listen("previous-article", Mojo.Event.tap, this.previousArticle = this.previousArticle.bind(this))
+	this.controller.listen("text-only", Mojo.Event.tap, this.fetchText = this.fetchText.bind(this))
     this.controller.listen("next-article", Mojo.Event.tap, this.nextArticle = this.nextArticle.bind(this))
     this.controller.listen("starred", Mojo.Event.tap, this.setStarred = this.setStarred.bind(this))
     this.controller.listen("read", Mojo.Event.tap, this.setRead = this.setRead.bind(this))
@@ -114,6 +115,15 @@ var ArticleAssistant = Class.create(BaseAssistant, {
         }
       })
     }
+  },
+  
+  fetchText: function() {
+	Readitlater.get(this.article.url, this.showText.bind(this));
+  },
+  
+  showText: function(r) {
+	this.controller.get('summary').innerHTML = r.responseText;
+	this.controller.get('text-only').addClassName('on');
   },
 
   previousArticle: function() {

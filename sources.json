@@ -24,6 +24,7 @@
 
   {"source": "app/lib/ajax.js"},
   {"source": "app/lib/instapaper.js"},
+  {"source": "app/lib/readitlater.js"},
   {"source": "app/lib/log.js"},
   {"source": "app/lib/sharing.js"},
 

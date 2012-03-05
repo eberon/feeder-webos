@@ -364,6 +364,14 @@ body.lefty #small-spinner {
   height: 100%;
 }
 
+#footer #text-only {
+  background: url(../images/text-only.png) center center no-repeat;
+}
+
+#footer #text-only.on {
+  background: url(../images/text-only-on.png) center center no-repeat;
+}
+
 #footer #go-back {
   background: url(../images/go-back-footer.png) center center no-repeat;
 }
